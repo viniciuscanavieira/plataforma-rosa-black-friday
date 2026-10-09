@@ -262,8 +262,18 @@ body::before {
     position: relative;
     isolation: isolate;
     width: 100%;
-    max-width: 520px;
+    max-width: 440px;
     justify-self: end;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 30px 30px 112px 30px;
+    background:
+        linear-gradient(160deg, rgba(42, 17, 31, 0.76), rgba(10, 10, 10, 0.9)) padding-box,
+        linear-gradient(145deg, #fff0f8, #e91e7d 48%, #7c254e) border-box;
+    box-shadow:
+        0 0 0 1px rgba(255, 192, 223, 0.12),
+        0 0 38px rgba(233, 30, 125, 0.22),
+        0 22px 42px rgba(0, 0, 0, 0.34);
 }
 
 .hero-platform-art::before {
@@ -278,6 +288,16 @@ body::before {
     background: radial-gradient(circle, rgba(255, 20, 147, 0.68) 0%, rgba(233, 30, 125, 0.42) 38%, rgba(233, 30, 125, 0.16) 62%, transparent 76%);
     filter: blur(30px);
     transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.hero-platform-art::after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    inset: 6px;
+    border: 1px solid rgba(255, 220, 237, 0.42);
+    border-radius: 24px 24px 106px 24px;
     pointer-events: none;
 }
 
@@ -308,6 +328,19 @@ body::before {
     line-height: 1.8;
     margin-bottom: 2.5rem;
     max-width: 600px;
+}
+
+.hero-offer {
+    display: inline-flex;
+    margin-bottom: 1rem;
+    padding: 0.55rem 0.9rem;
+    border: 1px solid rgba(255, 182, 216, 0.35);
+    border-radius: 999px;
+    background: rgba(233, 30, 125, 0.16);
+    color: #ff9aca;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
 }
 
 /* ============================================
@@ -352,6 +385,170 @@ body::before {
 
 .arrow {
     font-weight: bold;
+}
+
+/* ============================================
+   COMBO ROSA FRIDAY
+   ============================================ */
+
+.combo-offer {
+    padding: 2rem 0 5rem;
+    background: rgba(10, 10, 10, 0.76);
+}
+
+.combo-panel {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4rem);
+    overflow: hidden;
+    padding: clamp(1.5rem, 4vw, 3.5rem);
+    border: 1px solid rgba(255, 182, 216, 0.26);
+    border-radius: 24px;
+    background:
+        radial-gradient(ellipse at 0% 0%, rgba(233, 30, 125, 0.2), transparent 48%),
+        linear-gradient(145deg, rgba(38, 17, 30, 0.98), rgba(17, 13, 17, 0.98));
+    box-shadow: 0 24px 65px rgba(0, 0, 0, 0.32), 0 0 42px rgba(233, 30, 125, 0.1);
+}
+
+.combo-panel::before {
+    position: absolute;
+    z-index: -1;
+    top: -8rem;
+    right: -7rem;
+    width: 22rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(233, 30, 125, 0.16);
+    content: '';
+    filter: blur(65px);
+}
+
+.combo-content {
+    min-width: 0;
+}
+
+.combo-tag {
+    display: inline-flex;
+    margin-bottom: 0.8rem;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid rgba(255, 182, 216, 0.28);
+    border-radius: 999px;
+    background: rgba(233, 30, 125, 0.14);
+    color: #ffb6d8;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.combo-title {
+    margin-bottom: 1.5rem;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+}
+
+.combo-course-list {
+    display: grid;
+    gap: 0.8rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.combo-course-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.combo-course-name {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.96rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.combo-course-detail {
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    font-weight: 400;
+}
+
+.combo-course-price {
+    flex: 0 0 auto;
+    color: #ff9aca;
+    font-weight: 700;
+    text-decoration: line-through;
+    white-space: nowrap;
+}
+
+.combo-reveal {
+    display: grid;
+    gap: 0.35rem;
+    margin: 1.5rem 0;
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(255, 182, 216, 0.3);
+    border-radius: 14px;
+    background: linear-gradient(120deg, rgba(233, 30, 125, 0.22), rgba(233, 30, 125, 0.08));
+}
+
+.combo-reveal-label {
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.85rem;
+}
+
+.combo-reveal strong {
+    color: #fff;
+    font-size: 1.05rem;
+    line-height: 1.45;
+}
+
+.combo-cta {
+    width: 100%;
+    min-height: 62px;
+    box-shadow: 0 0 28px rgba(233, 30, 125, 0.32);
+}
+
+.combo-cta-note {
+    margin-top: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    text-align: center;
+}
+
+.combo-visual {
+    position: relative;
+    overflow: hidden;
+    padding: 12px;
+    border: 1px solid rgba(255, 225, 239, 0.72);
+    border-radius: 22px;
+    background: linear-gradient(145deg, #fffafc, #f1dce6);
+    box-shadow:
+        0 28px 60px rgba(0, 0, 0, 0.3),
+        0 8px 24px rgba(233, 30, 125, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.combo-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 13px;
+}
+
+.combo-visual figcaption {
+    padding: 1rem 0.75rem 0.35rem;
+    color: #783b58;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 /* ============================================
@@ -679,32 +876,38 @@ body::before {
 
 .testimonial-portrait-frame {
     position: relative;
-    width: min(100%, 236px);
+    width: min(100%, 260px);
     margin-bottom: 1.5rem;
-    padding: 8px;
+    padding: 10px;
+    overflow: hidden;
     border: 2px solid transparent;
-    border-radius: 120px 120px 16px 16px;
+    border-radius: 140px 140px 22px 22px;
     background:
-        linear-gradient(160deg, rgba(42, 17, 31, 0.72), rgba(10, 10, 10, 0.84)) padding-box,
-        linear-gradient(145deg, #ffc0df, #e91e7d 48%, #7c254e) border-box;
+        radial-gradient(ellipse at 50% 32%, rgba(233, 30, 125, 0.24), transparent 62%) padding-box,
+        linear-gradient(160deg, rgba(42, 17, 31, 0.82), rgba(10, 10, 10, 0.94)) padding-box,
+        linear-gradient(145deg, #fff0f8, #e91e7d 48%, #7c254e) border-box;
     box-shadow:
-        0 0 24px rgba(233, 30, 125, 0.2),
-        0 18px 36px rgba(0, 0, 0, 0.28);
+        0 0 0 1px rgba(255, 192, 223, 0.18),
+        0 0 38px rgba(233, 30, 125, 0.28),
+        0 22px 42px rgba(0, 0, 0, 0.38);
 }
 
 .testimonial-portrait-frame::before {
     content: '';
     position: absolute;
-    inset: 5px;
-    border: 1px solid rgba(255, 192, 223, 0.42);
-    border-radius: 112px 112px 11px 11px;
+    z-index: 2;
+    inset: 6px;
+    border: 1px solid rgba(255, 220, 237, 0.5);
+    border-radius: 132px 132px 15px 15px;
     pointer-events: none;
 }
 
 .testimonial-portrait {
+    position: relative;
+    z-index: 1;
     display: block;
     width: 100%;
-    max-height: 260px;
+    max-height: 320px;
     object-fit: contain;
     object-position: bottom;
     filter:
@@ -863,6 +1066,10 @@ body::before {
 @media (max-width: 768px) {
     .container {
         padding: 0 1.5rem;
+    }
+
+    .combo-panel {
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .platform-content {
@@ -1034,6 +1241,28 @@ body::before {
 @media (max-width: 480px) {
     .hero-title {
         font-size: 1.5rem;
+    }
+
+    .combo-offer {
+        padding: 1rem 0 3rem;
+    }
+
+    .combo-panel {
+        gap: 1.5rem;
+        padding: 1.25rem;
+        border-radius: 18px;
+    }
+
+    .combo-course-item {
+        gap: 0.6rem;
+    }
+
+    .combo-course-name {
+        font-size: 0.88rem;
+    }
+
+    .combo-course-price {
+        font-size: 0.88rem;
     }
 
     .hero-ticker {

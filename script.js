@@ -4,7 +4,7 @@
 
 function initializeCountdown() {
     // Data de término do countdown (ajuste conforme necessário)
-    const targetDate = new Date('2026-01-05T23:59:59').getTime();
+    const targetDate = new Date('2026-11-05T20:00:00').getTime();
     let countdownInterval = null;
 
     function updateCountdown() {
