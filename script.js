@@ -76,6 +76,51 @@ function initializeSmoothScroll() {
 }
 
 /* ============================================
+   LINKS DO GRUPO VIP
+   ============================================ */
+
+const whatsappGroupUrl = 'https://chat.whatsapp.com/Dt3ktEDoOLy6EOYhn8jP8y?s=cl&p=a&mlu=4&ilr=4&iam=0';
+
+function initializeWhatsAppButtons() {
+    const buttons = Array.from(document.querySelectorAll('a[data-whatsapp-cta]'));
+
+    function enforceWhatsAppDestination(button) {
+        button.href = whatsappGroupUrl;
+        button.target = '_blank';
+        button.rel = 'noopener noreferrer';
+        button.setAttribute('data-whatsapp-cta', '');
+    }
+
+    buttons.forEach(enforceWhatsAppDestination);
+
+    const destinationGuard = new MutationObserver(records => {
+        records.forEach(record => {
+            if (buttons.includes(record.target)) {
+                enforceWhatsAppDestination(record.target);
+            }
+        });
+    });
+
+    buttons.forEach(button => {
+        destinationGuard.observe(button, {
+            attributes: true,
+            attributeFilter: ['href', 'target', 'rel', 'data-whatsapp-cta']
+        });
+    });
+
+    document.addEventListener('click', event => {
+        if (!(event.target instanceof Element)) return;
+
+        const button = event.target.closest('a[data-whatsapp-cta]');
+        if (!button) return;
+
+        event.preventDefault();
+        enforceWhatsAppDestination(button);
+        window.open(whatsappGroupUrl, '_blank', 'noopener,noreferrer');
+    }, true);
+}
+
+/* ============================================
    BOTÕES COM FEEDBACK
    ============================================ */
 
@@ -198,6 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Executa todas as funções de inicialização
     initializeCountdown();
     initializeSmoothScroll();
+    initializeWhatsAppButtons();
     initializeButtons();
     initializeScrollAnimations();
     initializeLazyLoading();
