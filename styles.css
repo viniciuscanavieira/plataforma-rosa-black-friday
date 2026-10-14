@@ -487,6 +487,21 @@ body::before {
     white-space: nowrap;
 }
 
+.combo-bonus-tag {
+    display: inline-flex;
+    vertical-align: middle;
+    margin-left: 0.45rem;
+    padding: 0.2rem 0.45rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ffe5f1, #f3a9cc);
+    color: #54233d;
+    font-size: 0.58rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
 .combo-reveal {
     display: grid;
     gap: 0.35rem;
