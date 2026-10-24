@@ -79,7 +79,7 @@ function initializeSmoothScroll() {
    LINKS DO GRUPO VIP
    ============================================ */
 
-const whatsappGroupUrl = 'https://chat.whatsapp.com/Dt3ktEDoOLy6EOYhn8jP8y?s=cl&p=a&mlu=4&ilr=4&iam=0';
+const whatsappGroupUrl = 'https://chat.whatsapp.com/BcJKusVTR8kArMCKeyGAfC?s=cl&p=i&mlu=4&ilr=4&iam=0';
 
 function initializeWhatsAppButtons() {
     const buttons = Array.from(document.querySelectorAll('a[data-whatsapp-cta]'));
