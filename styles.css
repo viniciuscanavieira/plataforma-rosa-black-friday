@@ -1109,11 +1109,48 @@ body::before {
 
 .opportunity-product-price {
     display: grid;
-    gap: 0.45rem;
+    gap: 0.35rem;
     width: 100%;
+    min-height: 108px;
+    align-content: center;
     margin: 1.4rem 0 1.2rem;
-    padding: 1.1rem 0 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.085);
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(194, 215, 164, 0.2);
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(194, 215, 164, 0.1), rgba(194, 215, 164, 0.025));
+}
+
+.opportunity-price-label {
+    color: #c5d5a9;
+    font-size: 0.62rem;
+    font-weight: 750;
+    letter-spacing: 0.11em;
+}
+
+.opportunity-product-price del {
+    color: rgba(255, 255, 255, 0.52);
+    font-size: 0.78rem;
+}
+
+.opportunity-product-price strong {
+    color: #e0e9ce;
+    font-size: clamp(1.2rem, 2vw, 1.55rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.2;
+}
+
+.opportunity-product-featured .opportunity-product-price {
+    border-color: rgba(222, 194, 126, 0.28);
+    background: linear-gradient(135deg, rgba(222, 194, 126, 0.12), rgba(222, 194, 126, 0.035));
+}
+
+.opportunity-product-featured .opportunity-price-label {
+    color: #e1ca91;
+}
+
+.opportunity-product-featured .opportunity-product-price strong {
+    color: #f0dfb5;
 }
 
 .opportunity-product .opportunity-btn {
