@@ -76,93 +76,6 @@ function initializeSmoothScroll() {
 }
 
 /* ============================================
-   LINKS DO GRUPO VIP
-   ============================================ */
-
-const whatsappGroupUrl = 'https://chat.whatsapp.com/BcJKusVTR8kArMCKeyGAfC?s=cl&p=i&mlu=4&ilr=4&iam=0';
-
-function initializeWhatsAppButtons() {
-    const buttons = Array.from(document.querySelectorAll('a[data-whatsapp-cta]'));
-
-    function enforceWhatsAppDestination(button) {
-        button.href = whatsappGroupUrl;
-        button.target = '_blank';
-        button.rel = 'noopener noreferrer';
-        button.setAttribute('data-whatsapp-cta', '');
-    }
-
-    buttons.forEach(enforceWhatsAppDestination);
-
-    const destinationGuard = new MutationObserver(records => {
-        records.forEach(record => {
-            if (buttons.includes(record.target)) {
-                enforceWhatsAppDestination(record.target);
-            }
-        });
-    });
-
-    buttons.forEach(button => {
-        destinationGuard.observe(button, {
-            attributes: true,
-            attributeFilter: ['href', 'target', 'rel', 'data-whatsapp-cta']
-        });
-    });
-
-    document.addEventListener('click', event => {
-        if (!(event.target instanceof Element)) return;
-
-        const button = event.target.closest('a[data-whatsapp-cta]');
-        if (!button) return;
-
-        event.preventDefault();
-        enforceWhatsAppDestination(button);
-        window.open(whatsappGroupUrl, '_blank', 'noopener,noreferrer');
-    }, true);
-}
-
-/* ============================================
-   BOTÕES COM FEEDBACK
-   ============================================ */
-
-function initializeButtons() {
-    const buttons = document.querySelectorAll('.btn');
-
-    buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            // Cria efeito ripple
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            ripple.classList.add('ripple');
-
-            // Remove qualquer ripple anterior
-            const oldRipple = this.querySelector('.ripple');
-            if (oldRipple) oldRipple.remove();
-
-            this.appendChild(ripple);
-
-            // Simula ação (em produção, seria um link ou formulário)
-            console.log('Botão clicado:', this.textContent.trim());
-        });
-
-        // Adiciona feedback visual de hover
-        button.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-3px)';
-        });
-
-        button.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
-}
-
-/* ============================================
    SCROLL ANIMATIONS
    ============================================ */
 
@@ -243,8 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Executa todas as funções de inicialização
     initializeCountdown();
     initializeSmoothScroll();
-    initializeWhatsAppButtons();
-    initializeButtons();
     initializeScrollAnimations();
     initializeLazyLoading();
     initializeResponsiveHelper();

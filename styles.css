@@ -370,12 +370,7 @@ body::before {
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(233, 30, 125, 0.4);
-}
-
-.btn-primary:active {
-    transform: translateY(-1px);
 }
 
 .btn-large {
@@ -517,10 +512,65 @@ body::before {
     font-size: 0.85rem;
 }
 
-.combo-reveal strong {
+.combo-reveal-message {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.65rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
     color: #fff;
-    font-size: 1.05rem;
-    line-height: 1.45;
+    font-size: 1.08rem;
+    line-height: 1.5;
+    text-align: center;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.combo-reveal-text {
+    display: inline-block;
+    max-width: 100%;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.combo-reveal-original-price {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.15rem;
+    padding: 0.2rem 0.5rem 0.1rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+    font-size: clamp(1.15rem, 2vw, 1.55rem);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 18px rgba(255, 255, 255, 0.18);
+}
+
+.combo-reveal-original-price::before,
+.combo-reveal-original-price::after {
+    content: '';
+    position: absolute;
+    left: 0.18rem;
+    right: 0.18rem;
+    top: 50%;
+    height: 2.5px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(255, 110, 136, 0.7), #ff2b48, rgba(255, 110, 136, 0.7));
+    box-shadow: 0 0 12px rgba(255, 43, 72, 0.8);
+    z-index: 2;
+}
+
+.combo-reveal-original-price::before {
+    transform: translateY(-50%) rotate(11deg);
+}
+
+.combo-reveal-original-price::after {
+    transform: translateY(-50%) rotate(-11deg);
 }
 
 .combo-cta {
@@ -717,6 +767,394 @@ body::before {
     color: var(--primary-color);
     font-weight: 600;
     font-size: 0.9rem;
+}
+
+/* ============================================
+   ROSA FRIDAY OPPORTUNITY
+   ============================================ */
+
+.opportunity {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(4.5rem, 8vw, 7rem) 0;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(115, 156, 100, 0.16), transparent 54%),
+        linear-gradient(180deg, #101310 0%, #0c0d0c 100%);
+    border-top: 1px solid rgba(185, 210, 170, 0.14);
+}
+
+.opportunity-progress {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #809b65, #d6e5ad 52%, #8fa66e);
+    box-shadow: 0 0 16px rgba(190, 217, 150, 0.48);
+    transform: scaleX(0);
+    transform-origin: left center;
+    pointer-events: none;
+}
+
+.opportunity-heading,
+.opportunity-options-heading {
+    max-width: 960px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+
+.opportunity-tag,
+.opportunity-bundle-label,
+.opportunity-product-kicker {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.48rem 0.8rem;
+    border: 1px solid rgba(194, 215, 164, 0.3);
+    border-radius: 999px;
+    background: rgba(158, 189, 122, 0.1);
+    color: #d3e2b9;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.opportunity-title {
+    margin: 1.15rem 0 0.9rem;
+    font-size: clamp(2.3rem, 4vw, 3.3rem);
+    letter-spacing: -0.045em;
+    line-height: 1.04;
+}
+
+.opportunity-intro {
+    max-width: 620px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.opportunity-bundle {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.43fr);
+    gap: clamp(1.8rem, 4vw, 3.5rem);
+    padding: clamp(1.6rem, 4vw, 3.25rem);
+    border: 1px solid rgba(186, 205, 163, 0.24);
+    border-radius: 26px;
+    background:
+        radial-gradient(ellipse at 100% 0%, rgba(171, 197, 131, 0.1), transparent 44%),
+        linear-gradient(135deg, #191d19, #121512 66%);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+.opportunity-bundle-content h3,
+.opportunity-options-heading h3 {
+    margin: 0.9rem 0 1.15rem;
+    font-size: clamp(1.65rem, 2.7vw, 2.2rem);
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+}
+
+.opportunity-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-bottom: 1.7rem;
+}
+
+.opportunity-benefits span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid rgba(188, 208, 164, 0.14);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.035);
+    color: rgba(244, 244, 237, 0.82);
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+.opportunity-benefits span::before {
+    color: #c4d99e;
+    content: '✓';
+    font-size: 0.78rem;
+    font-weight: 900;
+}
+
+.opportunity-included {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.opportunity-included li {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1rem 0 1rem 1.45rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.opportunity-included li:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.opportunity-included li::before {
+    position: absolute;
+    top: 1.17rem;
+    left: 0;
+    color: #c6d9a5;
+    content: '✓';
+    font-size: 0.82rem;
+    font-weight: 900;
+}
+
+.opportunity-course-name {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    font-weight: 550;
+    line-height: 1.55;
+}
+
+.opportunity-course-price {
+    display: grid;
+    flex: 0 0 auto;
+    gap: 0.3rem;
+    color: #e5e2d9;
+    font-size: 0.9rem;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.opportunity-course-price del,
+.opportunity-product-price del {
+    color: rgba(255, 255, 255, 0.56);
+    font-size: 0.86rem;
+}
+
+.opportunity-course-price strong,
+.opportunity-product-price strong {
+    color: #e0e9ce;
+    font-size: 0.96rem;
+}
+
+.opportunity-bonus {
+    display: inline-flex;
+    margin-left: 0.4rem;
+    padding: 0.22rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(183, 207, 142, 0.13);
+    color: #d0e3ad;
+    font-size: 0.58rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    vertical-align: middle;
+}
+
+.opportunity-note {
+    margin: 1.35rem 0 0;
+    padding: 1rem 1.1rem;
+    border-left: 2px solid #b7cb8d;
+    border-radius: 0 10px 10px 0;
+    background: rgba(183, 203, 141, 0.055);
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 0.9rem;
+    line-height: 1.75;
+}
+
+.opportunity-note strong {
+    color: #e3edcc;
+}
+
+.opportunity-bundle-price {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    align-self: stretch;
+    min-width: 0;
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(206, 219, 177, 0.22);
+    border-radius: 20px;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(203, 220, 160, 0.13), transparent 65%),
+        linear-gradient(155deg, rgba(57, 68, 49, 0.62), rgba(27, 33, 27, 0.92));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 15px 40px rgba(0, 0, 0, 0.18);
+    text-align: center;
+}
+
+.opportunity-total-label {
+    color: #c6d5aa;
+    font-size: 0.67rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
+}
+
+.opportunity-installments {
+    color: #f0f3e5;
+    font-size: clamp(1.8rem, 3vw, 2.45rem);
+    letter-spacing: -0.04em;
+    line-height: 1.15;
+}
+
+.opportunity-cash-price {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.9rem;
+}
+
+.opportunity-btn {
+    width: 100%;
+    min-height: 58px;
+    margin-top: 0.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    background: linear-gradient(135deg, #c2d49a, #96b477);
+    color: #172016;
+    font-size: 0.88rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: #172016;
+    text-transform: none;
+    box-shadow: 0 10px 28px rgba(130, 163, 96, 0.2);
+}
+
+.opportunity-btn:hover:not(:disabled) {
+    box-shadow: 0 14px 32px rgba(151, 183, 112, 0.32);
+}
+
+.opportunity-price-caption {
+    max-width: 230px;
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 0.74rem;
+    line-height: 1.55;
+}
+
+.opportunity-options {
+    margin-top: clamp(4rem, 7vw, 6rem);
+}
+
+.opportunity-products {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.1rem;
+}
+
+.opportunity-product {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    min-height: 360px;
+    padding: 1.7rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    background: linear-gradient(155deg, #1a1d1a, #111311 72%);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    transition: border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.opportunity-product::before {
+    position: absolute;
+    top: 0;
+    right: 1.7rem;
+    left: 1.7rem;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(193, 212, 157, 0.7), transparent);
+    content: '';
+}
+
+.opportunity-product:hover {
+    border-color: rgba(194, 215, 164, 0.32);
+    box-shadow: 0 24px 52px rgba(0, 0, 0, 0.3), 0 0 28px rgba(151, 183, 112, 0.06);
+}
+
+.opportunity-product-featured {
+    border-color: rgba(194, 215, 164, 0.24);
+    background:
+        radial-gradient(ellipse at 100% 0%, rgba(171, 197, 131, 0.12), transparent 55%),
+        linear-gradient(155deg, #1d221c, #111311 72%);
+}
+
+.opportunity-product-kicker {
+    margin-bottom: 1.15rem;
+    font-size: 0.6rem;
+}
+
+.opportunity-product h4 {
+    margin: 0 0 0.7rem;
+    font-size: 1.27rem;
+    letter-spacing: -0.02em;
+    line-height: 1.35;
+}
+
+.opportunity-product-detail {
+    min-height: 3.4em;
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    line-height: 1.7;
+}
+
+.opportunity-product-price {
+    display: grid;
+    gap: 0.45rem;
+    width: 100%;
+    margin: 1.4rem 0 1.2rem;
+    padding: 1.1rem 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.085);
+}
+
+.opportunity-product .opportunity-btn {
+    margin-top: auto;
+}
+
+.opportunity-btn:disabled {
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.08);
+    background: linear-gradient(135deg, #565d50, #3d433b);
+    color: rgba(255, 255, 255, 0.75);
+    box-shadow: none;
+    opacity: 0.75;
+}
+
+.opportunity-portrait-frame {
+    width: 100%;
+    height: 124px;
+    margin: 0 0 1.2rem;
+    overflow: hidden;
+    border: 1px solid rgba(194, 215, 164, 0.22);
+    border-radius: 13px;
+    background:
+        radial-gradient(ellipse at 50% 90%, rgba(191, 212, 158, 0.19), transparent 65%),
+        linear-gradient(145deg, #292e27, #171a17);
+}
+
+.opportunity-portrait-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center 35%;
+}
+
+.opportunity-checkout-status {
+    width: 100%;
+    margin-top: 0.65rem;
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 0.72rem;
+    text-align: center;
 }
 
 /* ============================================
@@ -1037,6 +1475,10 @@ body::before {
         font-size: 2.8rem;
     }
 
+    .opportunity-products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .platform-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1085,6 +1527,23 @@ body::before {
 
     .combo-panel {
         grid-template-columns: minmax(0, 1fr);
+    }
+
+    .opportunity-bundle {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .opportunity-bundle-price {
+        align-self: auto;
+        padding: 1.6rem 1.25rem;
+    }
+
+    .opportunity-products {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .opportunity-product {
+        min-height: 0;
     }
 
     .platform-content {
@@ -1278,6 +1737,37 @@ body::before {
 
     .combo-course-price {
         font-size: 0.88rem;
+    }
+
+    .opportunity {
+        padding: 4rem 0;
+    }
+
+    .opportunity-bundle {
+        gap: 1.5rem;
+        padding: 1.2rem;
+    }
+
+    .opportunity-included li {
+        flex-direction: column;
+        gap: 0.45rem;
+    }
+
+    .opportunity-course-price {
+        text-align: left;
+        white-space: normal;
+    }
+
+    .opportunity-benefits {
+        gap: 0.4rem;
+    }
+
+    .opportunity-benefits span {
+        font-size: 0.7rem;
+    }
+
+    .opportunity-product {
+        padding: 1.25rem;
     }
 
     .hero-ticker {
